@@ -14,7 +14,10 @@ BuildRequires:	kdelibs-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-A CHM file viewer + corresponding kpart and kio slave for
+A CHM file viewer + corresponding kpart and kio slave for.
+
+%description -l pl
+Przegl±darka plików CHM dla KDE.
 
 %prep
 %setup -q
