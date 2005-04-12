@@ -1,5 +1,5 @@
 # TODO:
-# - separate libs/devel/static packages
+# - separate libs package? (does sth other use libchmmix???)
 Summary:	A CHM file viewer for KDE
 Summary(pl):	Przegl±darka plików CHM dla KDE
 Name:		kchm
@@ -17,13 +17,27 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 A CHM file viewer + corresponding kpart and kio slave for.
 
 %description -l pl
-Przegl±darka plików CHM dla KDE.
+Przegl±darka plików CHM dla KDE oraz odpowiednie modu³y kpart i kio
+slave.
+
+%package devel
+Summary:	Header files for chmmix library
+Summary(pl):	Pliki nag³ówkowe biblioteki chmmix
+Group:		Development/Libraries
+Requires:	%{name} = %{version}-%{release}
+
+%description devel
+Header files for chmmix library.
+
+%description devel -l pl
+Pliki nag³ówkowe biblioteki chmmix.
 
 %prep
 %setup -q
 
 %build
-%configure
+%configure \
+	--with-qt-libraries=%{_libdir}
 %{__make}
 
 %install
@@ -31,19 +45,31 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+# conflicts with chmlib-devel
+rm -f $RPM_BUILD_ROOT%{_includedir}/chm_lib.h
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post  -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/*
-%attr(755,root,root) %{_libdir}/lib*.so.*
+%attr(755,root,root) %{_libdir}/libchmmix.so.*.*.*
 %attr(755,root,root) %{_libdir}/kde3/*.so
 %{_libdir}/kde3/*.la
-%{_datadir}/apps/*
+%{_datadir}/apps/chmnew
+%{_datadir}/apps/chmnewpart
+%{_datadir}/apps/kchm
 %{_iconsdir}/hicolor/*/apps/*.png
 %{_datadir}/mimelnk/application/*.desktop
 %{_datadir}/service*/*.*
+
+%files devel
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_libdir}/libchmmix.so
+%{_libdir}/libchmmix.la
+%{_includedir}/chmxx.h
+%{_includedir}/lzx.h
