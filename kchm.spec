@@ -9,6 +9,8 @@ License:	GPL v2+
 Group:		Applications/Publishing
 Source0:	http://dl.sourceforge.net/kchmnew/%{name}-%{version}.tar.bz2
 # Source0-md5:	c11189726ed59563d95d9677ae8555c0
+Source1:	%{name}.desktop
+Source2:	%{name}.png
 URL:		http://sourceforge.net/projects/kchmnew/
 BuildRequires:	kdelibs-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -42,8 +44,12 @@ Pliki nag³ówkowe biblioteki chmmix.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+install -D %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}/kde/%{name}.desktop
+install -D %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
 
 # conflicts with chmlib-devel
 rm -f $RPM_BUILD_ROOT%{_includedir}/chm_lib.h
@@ -66,6 +72,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/*/apps/*.png
 %{_datadir}/mimelnk/application/*.desktop
 %{_datadir}/service*/*.*
+%{_desktopdir}/kde/*
+%{_pixmapsdir}/*
 
 %files devel
 %defattr(644,root,root,755)

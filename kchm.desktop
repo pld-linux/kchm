@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=KChm
+Comment=CHM Viewer
+Exec=kchm %i %m -caption "%c"
+Icon=kchm
+Terminal=false
+Type=Application
+Categories=Qt;KDE;Utility;
+MimeType=application/x-chm;
+DocPath=chm/chm.html
+# vi:encoding=utf-8
