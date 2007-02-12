@@ -1,7 +1,7 @@
 # TODO:
 # - separate libs package? (does sth other use libchmmix???)
 Summary:	A CHM file viewer for KDE
-Summary(pl):	Przegl眃arka plik體 CHM dla KDE
+Summary(pl.UTF-8):   Przegl膮darka plik贸w CHM dla KDE
 Name:		kchm
 Version:	0.6.5
 Release:	1
@@ -18,21 +18,21 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 A CHM file viewer + corresponding kpart and kio slave for.
 
-%description -l pl
-Przegl眃arka plik體 CHM dla KDE oraz odpowiednie modu硑 kpart i kio
+%description -l pl.UTF-8
+Przegl膮darka plik贸w CHM dla KDE oraz odpowiednie modu艂y kpart i kio
 slave.
 
 %package devel
 Summary:	Header files for chmmix library
-Summary(pl):	Pliki nag丑wkowe biblioteki chmmix
+Summary(pl.UTF-8):   Pliki nag艂贸wkowe biblioteki chmmix
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Header files for chmmix library.
 
-%description devel -l pl
-Pliki nag丑wkowe biblioteki chmmix.
+%description devel -l pl.UTF-8
+Pliki nag艂贸wkowe biblioteki chmmix.
 
 %prep
 %setup -q
