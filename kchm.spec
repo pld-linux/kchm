@@ -1,7 +1,7 @@
 # TODO:
 # - separate libs package? (does sth other use libchmmix???)
 Summary:	A CHM file viewer for KDE
-Summary(pl.UTF-8):   Przeglądarka plików CHM dla KDE
+Summary(pl.UTF-8):	Przeglądarka plików CHM dla KDE
 Name:		kchm
 Version:	0.6.5
 Release:	1
@@ -24,7 +24,7 @@ slave.
 
 %package devel
 Summary:	Header files for chmmix library
-Summary(pl.UTF-8):   Pliki nagłówkowe biblioteki chmmix
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki chmmix
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
