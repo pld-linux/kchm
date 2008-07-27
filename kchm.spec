@@ -4,7 +4,7 @@ Summary:	A CHM file viewer for KDE
 Summary(pl.UTF-8):	Przeglądarka plików CHM dla KDE
 Name:		kchm
 Version:	0.6.5
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		Applications/Publishing
 Source0:	http://dl.sourceforge.net/kchmnew/%{name}-%{version}.tar.bz2
